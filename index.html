@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baddobad Team Tools</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #000000, #2c003e, #6a0dad);
+      color: white;
+      text-align: center;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 10px auto;
+      font-size: 1.2rem;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .btn:hover {
+      background: #9b30ff;
+      transform: scale(1.1);
+    }
+
+    .tools {
+      padding: 80px 20px;
+    }
+
+    .tool-card {
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      width: 300px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+
+    .tool-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tool-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #6a0dad;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .tool-card a:hover {
+      background: #9b30ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.8);
+      margin-top: 2rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Intro -->
+  <header>
+    <h1>Baddobad Team Tool</h1>
+    <p>Une team de griefer qui partage gratuitement ses tools Discord.</p>
+    <button class="btn" onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">
+      Découvrir les tools
+    </button>
+  </header>
+
+  <!-- Tools -->
+  <section class="tools" id="tools">
+    <h2>Nos Tools</h2>
+
+    <div class="tool-card">
+      <h3>Nitr0</h3>
+      <p>Un outil puissant pour automatiser et troller sur Discord.</p>
+      <a href="tools/nitr0.zip" download>Télécharger</a>
+    </div>
+
+    <div class="tool-card">
+      <h3>V2lozor</h3>
+      <p>Un autre outil phare de la team Baddobad.</p>
+      <a href="tools/v2lozor.zip" download>Télécharger</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 - Baddobad Team</p>
+  </footer>
+
+  <script>
+    // Animation des cartes au scroll
+    const cards = document.querySelectorAll('.tool-card');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+
+</body>
+</html>
