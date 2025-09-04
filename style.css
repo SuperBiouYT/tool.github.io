@@ -1,0 +1,92 @@
+/* Fond dégradé violet/noir */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #0d0d0d, #2b0040);
+  color: #eee;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* Intro */
+.intro {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  animation: fadeDown 1.5s ease-out forwards;
+}
+
+.intro h1 {
+  font-size: 3rem;
+  color: #a259ff;
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  color: #ddd;
+  margin-bottom: 2rem;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  color: white;
+  background: #a259ff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #7a1fff;
+}
+
+/* Section Tools */
+main {
+  padding: 3rem 1rem;
+  display: grid;
+  gap: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.tool {
+  background: rgba(20, 20, 20, 0.85);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(162, 89, 255, 0.3);
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+.tool.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  margin-top: 2rem;
+}
+
+/* Animation intro */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
